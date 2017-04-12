@@ -2,19 +2,7 @@ var express = require("express");
 var app     = express();
 var PORT    = 3000;
 
-var middleware = {
-    requireAuthentication : function(req, res, next){
-        console.log("private route hit");
-        next();
-    },
-    logger : function(req, res, next){
-
-        var date = new Date().toString();
-        console.log("Requested at : "  + date + " " + req.method + " " + req.originalUrl);
-        next();
-    }
-}
-
+var middleware = require("./middleware");
 
 // middleware 2 seviyede yapilabilir.. application seviyesinde yapilabilir. ve route seviyesinde yapilabilir..
 // Application seviyesinde yapildiginda tanimlama route işlemlerinin üstünde OLMAK ZORUNDADIR...
